@@ -1,6 +1,8 @@
 # Arduino Virtual Ball in Torus
 
-This small Arduino construction reproduces the machanics of a ball kept inside a torus. By moving the Arduino board itself accross the 6 dimansions, the ball circulates inside.
+![My Toy](./sphere_in_torus_toy.png)
+
+This small Arduino construction reproduces the machanics of a (single) ball kept inside a torus. By moving the Arduino board itself accross the 6 dimansions, the ball circulates inside.
 
 The behavior is calculated realtime by the processor, based on standard mechanics equations, using moment of inertia.
 
@@ -25,3 +27,5 @@ So the complete equation is:
 ![Complete equation](./equ-complete.svg)
 
 I have calculated all the equations myself, so if you find any error, please contact me!
+
+Thank you to [STLFinder](https://www.stlfinder.com/model/voronoi-donut-with-holes-inside-saX8Zuwv/659237/) for the picture of the toy.
