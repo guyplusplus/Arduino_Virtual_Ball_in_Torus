@@ -23,3 +23,15 @@ https://www.codecogs.com/latex/eqneditor.php
 \\
 \boldsymbol{\textrm{Monent of the centrifugal force:}}\\
 -l(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) \cdot (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))
+
+-----------------
+
+\begin{align*}
+\large l \ddot{\alpha} =
+& -cos(\varphi +\alpha )\cdot sin\theta \cdot g\\
+& + \ddot{x}(sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
+& + \ddot{y}(-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
+& + \ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))\\
+& -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\theta} \cdot \dot{\psi} \cdot sin\theta)\\
+& -l(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) \cdot (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))
+\end{align*}

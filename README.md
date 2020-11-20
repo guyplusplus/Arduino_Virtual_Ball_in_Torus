@@ -20,6 +20,8 @@ Each moment is equal to:
 
 ![Non Galilean virtual forces](./equ-virtualForces.svg)
 
-So the final equation is:
+So the complete equation is:
+
+![Complete equation](./equ-complete.svg)
 
 I have calculated all the equations myself, so if you find any error, please contact me!
