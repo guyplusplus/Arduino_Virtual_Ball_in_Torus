@@ -6,7 +6,7 @@ This small Arduino construction reproduces the machanics of a (single) ball kept
 
 The behavior is calculated realtime by the processor, based on standard mechanics equations, using moment of inertia.
 
-All calculations are based on Euler angles, in the canonical (first) approach based on the ZXZ angles: &#x03c8 (psi), &#x03b8 (theta) then &#x03c6 (phi). This picture from [Berkeley University](https://rotations.berkeley.edu/the-euler-angle-parameterization/) explains the used notation.
+All calculations are based on Euler angles, in the canonical (first) approach based on the ZXZ angles: &#x03c8; (psi), &#x03b8; (theta) then &#x03c6; (phi). This picture from [Berkeley University](https://rotations.berkeley.edu/the-euler-angle-parameterization/) explains the used notation.
 
 ![Euler angles](./euler-angles.png)
 
