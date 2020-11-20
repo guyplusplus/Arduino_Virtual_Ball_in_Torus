@@ -1,0 +1,1 @@
+l \ddot{\alpha} = -cos(\varphi +\alpha )\cdot sin\theta \cdot g
