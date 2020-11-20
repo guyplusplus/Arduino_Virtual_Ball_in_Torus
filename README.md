@@ -10,7 +10,7 @@ All calculations are based on Euler angles, in the canonical (first) approach ba
 
 ![Euler angles](./euler-angles.png)
 
-Assuming a fixed board, the only moment is from the gravity force:
+Assuming a fixed board, where its z axis points verticaly upward, the only moment is from the gravity force:
 
 ![Moment from gravity force](./equ-gravity.svg)
 
