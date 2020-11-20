@@ -14,6 +14,7 @@ Few notations:
 - the torus has a radius of *l*
 - *&#x03b1; (alpha)* is the angle of the ball in the torus referential with x axis
 - *g* is the gravity constant
+- *fr* is the fiction factor
 
 Assuming a fixed board, where its z axis points verticaly upward, the only moment is from the gravity force:
 
@@ -26,6 +27,10 @@ Then as the board is actually a non galilean referencial, the moment of virtual 
 The moment of the 4 virtual forces are equal to:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean virtual forces](./equ-virtualForces.svg)
+
+Finally a friction moement has been added which acts inverse to the ball speed.
+
+&nbsp;&nbsp;&nbsp;&nbsp;![Friction force](./equ-friction.svg)
 
 So the complete equation is:
 
