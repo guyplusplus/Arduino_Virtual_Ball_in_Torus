@@ -28,7 +28,7 @@ l \ddot{\alpha} = -cos(\varphi +\alpha ) \cdot sin\theta \cdot g
 
 \\
 \boldsymbol{\textrm{Monent of the friction force:}}\\
-\indent - fr \cdot l^2 \cdot \dot{\alpha}
+\indent - fr \cdot l \cdot \dot{\alpha}
 
 -----------------
 
@@ -40,5 +40,5 @@ l \ddot{\alpha} =
 & + \ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))\\
 & -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\theta} \cdot \dot{\psi} \cdot sin\theta)\\
 & -l(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) \cdot (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))\\
-& - fr \cdot l^2 \cdot \dot{\alpha}
+& - fr \cdot l \cdot \dot{\alpha}
 \end{align*}
