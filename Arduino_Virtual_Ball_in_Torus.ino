@@ -74,8 +74,9 @@ float accel_scale;      // based on MPU6050_RANGE_x_G
 float alpha = 0;
 float alpha_p = 0;
 float l = 0.04; // 4cm, radius of NeoPixel
+float m = 2; // 2g ball
 float g = 9.81;
-float friction_factor = 0.2;
+float friction_factor = 0.4;
 float previous_now = 0;
 float loop_now = 0;
 float dt = 0;
@@ -446,7 +447,7 @@ void loop() {
     float alpha_pp_euler = -(psi_pp * cos_theta + phi_pp - theta_p * psi_p_sin_theta);
 
     //Monent of Friction
-    float alpha_pp_friction = -friction_factor * alpha_p;
+    float alpha_pp_friction = -friction_factor * alpha_p / m;
     
     //sum all accelerations
     if (DEBUG_PP) {
