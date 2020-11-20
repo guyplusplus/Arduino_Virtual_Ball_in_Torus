@@ -101,7 +101,7 @@ float lampPerRadian = neoPixelLampCount / (2 * M_PI);
 int previousLampNb = 0;
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(neoPixelLampCount, NEOPIXEL_CONTROL_PIN, NEO_RBG + NEO_KHZ800);
 uint32_t blackColor = strip.Color(0, 0, 0);
-uint32_t ballColor = strip.Color(100, 0, 0);
+uint32_t ballColor = strip.Color(50, 0, 0);
 
 
 // ================================================================
