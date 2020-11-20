@@ -28,4 +28,4 @@ So the complete equation is:
 
 I have calculated all the equations myself, so if you find any error, please contact me!
 
-Thank you to [STLFinder](https://www.stlfinder.com/model/voronoi-donut-with-holes-inside-saX8Zuwv/659237/) for the picture of the toy.
+Thanks to [STLFinder](https://www.stlfinder.com/model/voronoi-donut-with-holes-inside-saX8Zuwv/659237/) for the picture of the toy.
