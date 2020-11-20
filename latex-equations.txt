@@ -2,7 +2,7 @@ https://www.codecogs.com/latex/eqneditor.php
 
 -----------------
 
-l \ddot{\alpha} = -cos(\varphi +\alpha ) \cdot sin\theta \cdot g
+l \ddot{\alpha} = -sin\theta \cdot cos(\varphi +\alpha ) \cdot g
 
 -----------------
 
@@ -14,7 +14,7 @@ l \ddot{\alpha} = -cos(\varphi +\alpha ) \cdot sin\theta \cdot g
 \\
 \\
 \boldsymbol{\textrm{Monent of the Euler force:}}\\
-\indent -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\theta} \cdot \dot{\psi} \cdot sin\theta)
+\indent -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\psi} \cdot \dot{\theta} \cdot sin\theta)
 \\
 \\
 \boldsymbol{\textrm{Monent of the Coriolis force:}}\\
@@ -34,11 +34,11 @@ l \ddot{\alpha} = -cos(\varphi +\alpha ) \cdot sin\theta \cdot g
 
 \begin{align*}
 l \ddot{\alpha} =
-& -cos(\varphi +\alpha ) \cdot sin\theta \cdot g\\
+& -sin\theta \cdot cos(\varphi +\alpha ) \cdot g\\
 & + \ddot{x}(sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
 & + \ddot{y}(-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
 & + \ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))\\
-& -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\theta} \cdot \dot{\psi} \cdot sin\theta)\\
+& -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\psi} \cdot \dot{\theta} \cdot sin\theta)\\
 & -l(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) \cdot (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))\\
 & - fr \cdot l \cdot \dot{\alpha}
 \end{align*}
