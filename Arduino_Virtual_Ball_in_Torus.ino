@@ -54,7 +54,7 @@ float euler[3];         // [psi, theta, phi]    Euler angle container
 // ===               GyroBall Variables                         ===
 // ================================================================
 
-#define DEBUG true
+#define DEBUG false
 #define DEBUG_LAMP false
 #define DEBUG_PERF false
 #define DEBUG_DERIV_ANGLE false
@@ -75,7 +75,7 @@ float alpha = 0;
 float alpha_p = 0;
 float l = 0.04; // 4cm, radius of NeoPixel
 float g = 9.81;
-float friction_factor = .002;
+float friction_factor = 0.2;
 float previous_now = 0;
 float loop_now = 0;
 float dt = 0;
@@ -445,6 +445,9 @@ void loop() {
     float phi_pp = (phi_p - previous_phi_p) / dt;
     float alpha_pp_euler = -(psi_pp * cos_theta + phi_pp - theta_p * psi_p_sin_theta);
 
+    //Monent of Friction
+    float alpha_pp_friction = -friction_factor * alpha_p;
+    
     //sum all accelerations
     if (DEBUG_PP) {
       Serial.print(F("alpha_pp_gravity\t"));
@@ -454,14 +457,15 @@ void loop() {
       Serial.print(F("\talpha_pp_centrifuge\t"));
       Serial.print(alpha_pp_centrifuge);
       Serial.print(F("\talpha_pp_euler\t"));
-      Serial.println(alpha_pp_euler);
+      Serial.print(alpha_pp_euler);
+      Serial.print(F("\talpha_pp_friction\t"));
+      Serial.println(alpha_pp_friction);
     }
-    
-    float alpha_pp = alpha_pp_gravity + alpha_pp_inertia + alpha_pp_centrifuge + alpha_pp_euler;
-    //float alpha_pp = alpha_pp_gravity;
 
-    //Integrate alpha and apply friction
-    alpha_p += dt * alpha_pp - friction_factor * alpha_p;
+    float alpha_pp = alpha_pp_gravity + alpha_pp_inertia + alpha_pp_centrifuge + alpha_pp_euler + alpha_pp_friction;
+
+    //Integrate alpha
+    alpha_p += dt * alpha_pp;
 
     //Integrate alpha
     alpha += dt * alpha_p;
