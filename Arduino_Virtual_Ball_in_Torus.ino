@@ -47,7 +47,7 @@ VectorInt16 aa;         // [x, y, z]            accel sensor measurements
 VectorInt16 aaReal;     // [x, y, z]            gravity-free accel sensor measurements
 VectorInt16 aaWorld;    // [x, y, z]            world-frame accel sensor measurements
 VectorFloat gravity;    // [x, y, z]            gravity vector
-float euler[3];         // [psi, theta, phi]    Euler angle container
+float euler[3];         // [phi, theta, psi]    Euler angle container
 
 
 // ================================================================
@@ -68,8 +68,8 @@ float euler[3];         // [psi, theta, phi]    Euler angle container
 #define SENSORS_GRAVITY_STANDARD (SENSORS_GRAVITY_EARTH)
 
 int loopWithDataCount = 0;
-Quaternion qSensor0;
-Quaternion qSensor0Conjugate;
+Quaternion sensorQ0;
+Quaternion sensorQ0Conjugate;
 float accel_scale;      // based on MPU6050_RANGE_x_G
 float alpha = 0;
 float alpha_p = 0;
@@ -80,13 +80,13 @@ float previous_now = 0;
 float loop_now = 0;
 float dt = 0;
 float previous_sin_theta = 0;
-float previous_sin_psi = 0;
 float previous_sin_phi = 0;
+float previous_sin_psi = 0;
 float previous_cos_theta = 0;
-float previous_cos_psi = 0;
 float previous_cos_phi = 0;
-float previous_psi_p = 0;
+float previous_cos_psi = 0;
 float previous_phi_p = 0;
+float previous_psi_p = 0;
 
 
 // ================================================================
@@ -95,13 +95,13 @@ float previous_phi_p = 0;
 
 #include <Adafruit_NeoPixel.h>
 #define NEOPIXEL_CONTROL_PIN 6
-#define LAMP_INTENSITY 100
 
 int neoPixelLampCount = 24;
 float lampPerRadian = neoPixelLampCount / (2 * M_PI);
 int previousLampNb = 0;
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(neoPixelLampCount, NEOPIXEL_CONTROL_PIN, NEO_RBG + NEO_KHZ800);
 uint32_t blackColor = strip.Color(0, 0, 0);
+uint32_t ballColor = strip.Color(100, 0, 0);
 
 
 // ================================================================
@@ -110,9 +110,9 @@ uint32_t blackColor = strip.Color(0, 0, 0);
 
 uint8_t dmpGetEulerZXZ(float *data, Quaternion *q) {
   //From http://bediyap.com/programming/convert-quaternion-to-euler-rotations/ for zxz (Canonical Euler representation)
-  data[0] = atan2(2 * (q->x * q->z + q->w * q->y), -2 * (q->y * q->z - q->w * q->x)); // psi ]-pi, pi]
+  data[0] = atan2(2 * (q->x * q->z + q->w * q->y), -2 * (q->y * q->z - q->w * q->x)); // phi ]-pi, pi]
   data[1] = acos(q->w * q->w - q->x * q->x - q->y * q->y + q->z * q->z);   // theta [0, pi]
-  data[2] = atan2(2 * (q->x * q->z - q->w * q->y), 2 * (q->y * q->z + q->w * q->x)); // phi ]-pi, pi]
+  data[2] = atan2(2 * (q->x * q->z - q->w * q->y), 2 * (q->y * q->z + q->w * q->x)); // psi ]-pi, pi]
   return 0;
 }
 
@@ -279,25 +279,26 @@ void callibrateOrientation(Quaternion *q) {
   previous_now = loop_now;
 
   //light progress of callibration
-  strip.setPixelColor(neoPixelLampCount * loopWithDataCount / CALLIBRATION_STEPS, strip.Color(LAMP_INTENSITY, 0, 0));
+  strip.setPixelColor(neoPixelLampCount * loopWithDataCount / CALLIBRATION_STEPS, ballColor);
   strip.show();
 
   //ignore 3/4 of time, wait for sensor to stabilize
   if(loopWithDataCount < (CALLIBRATION_STEPS * 3 / 4))
     return;
 
-  //callibration last steo
+  //callibration last step by calculating average and normalization
   if(loopWithDataCount == CALLIBRATION_STEPS) {
-    qSensor0.normalize();
-    qSensor0Conjugate = qSensor0.getConjugate();
+    sensorQ0.normalize();
+    sensorQ0Conjugate = sensorQ0.getConjugate();
     strip.clear();
     return;
   }
 
-  qSensor0.w += q->w;      
-  qSensor0.x += q->x;      
-  qSensor0.y += q->y;      
-  qSensor0.z += q->z;
+  //accumulate
+  sensorQ0.w += q->w;      
+  sensorQ0.x += q->x;      
+  sensorQ0.y += q->y;      
+  sensorQ0.z += q->z;
 }
 
 // ================================================================
@@ -325,10 +326,11 @@ void loop() {
       return;
     }
 
-    Quaternion worldQ = sensorQ.getProduct(qSensor0Conjugate);
+    Quaternion worldQ = sensorQ.getProduct(sensorQ0Conjugate);
     dmpGetEulerZXZ(euler, &worldQ);
      
     if (DEBUG && loopWithDataCount%100==0) {
+      Serial.print(F("t\t"));
       Serial.print((float)(loopWithDataCount / 100));
       Serial.print(F("\tsensorQ\t"));
       debugQuaternion(&sensorQ);
@@ -384,24 +386,24 @@ void loop() {
       Serial.print(F("\t"));
     }
 
-    float psi = euler[0]; //TODO exchange psi and phi
+    float phi = euler[0];
     float theta = euler[1];
-    float phi = euler[2];
+    float psi = euler[2];
     float sin_theta = sin(theta);
     float cos_theta = cos(theta);
-    float sin_psi = sin(psi);
-    float cos_psi = cos(psi);
-    float cos_phi_plus_alpha = cos(phi + alpha);
-    float sin_phi_plus_alpha = sin(phi + alpha);
+    float sin_phi = sin(phi);
+    float cos_phi = cos(phi);
+    float cos_psi_plus_alpha = cos(psi + alpha);
+    float sin_psi_plus_alpha = sin(psi + alpha);
 
     //Monent of gravity, in non galiean strip referential
-    float alpha_pp_gravity = (-sin_theta * cos_phi_plus_alpha * g) / l;
+    float alpha_pp_gravity = (-sin_theta * cos_psi_plus_alpha * g) / l;
 
     //Monent of inertia strength
     float alpha_pp_inertia = (
-                  (aaWorld.x / accel_scale) * (sin_psi * cos_theta * cos_phi_plus_alpha + cos_psi * sin_phi_plus_alpha) +
-                  (aaWorld.y / accel_scale) * (-cos_psi * cos_theta * cos_phi_plus_alpha + sin_psi * sin_phi_plus_alpha) +
-                  (aaWorld.z / accel_scale) * (-sin_theta * cos_phi_plus_alpha)
+                  (aaWorld.x / accel_scale) * (sin_phi * cos_theta * cos_psi_plus_alpha + cos_phi * sin_psi_plus_alpha) +
+                  (aaWorld.y / accel_scale) * (-cos_phi * cos_theta * cos_psi_plus_alpha + sin_phi * sin_psi_plus_alpha) +
+                  (aaWorld.z / accel_scale) * (-sin_theta * cos_psi_plus_alpha)
                 ) / l;
 
     //Monent of centrifuge strength
@@ -410,38 +412,38 @@ void loop() {
       theta_p = (sin_theta - previous_sin_theta) / cos_theta / dt;
     else
       theta_p = -(cos_theta - previous_cos_theta) / sin_theta / dt;
-    float psi_p = 0;
-    if (abs(cos_psi) > .5)
-      psi_p = (sin_psi - previous_sin_psi) / cos_psi / dt;
-    else
-      psi_p = -(cos_psi - previous_cos_psi) / sin_psi / dt;
-    float psi_p_sin_theta = psi_p * sin_theta;
-    if (DEBUG_DERIV_ANGLE) {
-      Serial.print(F("theta_p\t"));
-      Serial.print(theta_p);
-      Serial.print(F("\tpsi_p\t"));
-      Serial.print(psi_p);
-      Serial.print(F("\tcos_theta\t"));
-      Serial.print(cos_theta);
-      Serial.print(F("\tcos_psi\t"));
-      Serial.print(cos_psi);
-      if (abs(theta_p) > 20 || abs(psi_p) > 20)
-        Serial.print(F("***"));
-      Serial.println();
-    }
-    float alpha_pp_centrifuge = -(theta_p * cos_phi_plus_alpha + psi_p_sin_theta * sin_phi_plus_alpha) * (-theta_p * sin_phi_plus_alpha + psi_p_sin_theta * cos_phi_plus_alpha);
-
-    //Monent of Euler strength
-    float sin_phi = sin(phi);
-    float cos_phi = cos(phi);
     float phi_p = 0;
     if (abs(cos_phi) > .5)
       phi_p = (sin_phi - previous_sin_phi) / cos_phi / dt;
     else
       phi_p = -(cos_phi - previous_cos_phi) / sin_phi / dt;
-    float psi_pp = (psi_p - previous_psi_p) / dt;
+    float phi_p_sin_theta = phi_p * sin_theta;
+    if (DEBUG_DERIV_ANGLE) {
+      Serial.print(F("theta_p\t"));
+      Serial.print(theta_p);
+      Serial.print(F("\tphi_p\t"));
+      Serial.print(phi_p);
+      Serial.print(F("\tcos_theta\t"));
+      Serial.print(cos_theta);
+      Serial.print(F("\tcos_phi\t"));
+      Serial.print(cos_phi);
+      if (abs(theta_p) > 20 || abs(phi_p) > 20)
+        Serial.print(F("***"));
+      Serial.println();
+    }
+    float alpha_pp_centrifuge = -(theta_p * cos_psi_plus_alpha + phi_p_sin_theta * sin_psi_plus_alpha) * (-theta_p * sin_psi_plus_alpha + phi_p_sin_theta * cos_psi_plus_alpha);
+
+    //Monent of Euler strength
+    float sin_psi = sin(psi);
+    float cos_psi = cos(psi);
+    float psi_p = 0;
+    if (abs(cos_psi) > .5)
+      psi_p = (sin_psi - previous_sin_psi) / cos_psi / dt;
+    else
+      psi_p = -(cos_psi - previous_cos_psi) / sin_psi / dt;
     float phi_pp = (phi_p - previous_phi_p) / dt;
-    float alpha_pp_euler = -(psi_pp * cos_theta + phi_pp - theta_p * psi_p_sin_theta);
+    float psi_pp = (psi_p - previous_psi_p) / dt;
+    float alpha_pp_euler = -(phi_pp * cos_theta + psi_pp - theta_p * phi_p_sin_theta);
 
     //sum all accelerations
     if (DEBUG_PP) {
@@ -482,7 +484,7 @@ void loop() {
       Serial.println(alpha_p);
     }
     strip.setPixelColor(previousLampNb, blackColor);
-    strip.setPixelColor(lampNb, strip.Color(LAMP_INTENSITY, 0, 0));
+    strip.setPixelColor(lampNb, ballColor);
     strip.show();
     previousLampNb = lampNb;
 
@@ -498,12 +500,12 @@ void loop() {
     //set 'previous' variables
     previous_now = loop_now;
     previous_sin_theta = sin_theta;
-    previous_sin_psi = sin_psi;
     previous_sin_phi = sin_phi;
+    previous_sin_psi = sin_psi;
     previous_cos_theta = cos_theta;
-    previous_cos_psi = cos_psi;
     previous_cos_phi = cos_phi;
-    previous_psi_p = psi_p;
+    previous_cos_psi = cos_psi;
     previous_phi_p = phi_p;
+    previous_psi_p = psi_p;
   }
 }
