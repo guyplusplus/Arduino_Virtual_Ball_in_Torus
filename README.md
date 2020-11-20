@@ -28,7 +28,7 @@ The moment of the 4 virtual forces are equal to:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean virtual forces](./equ-virtualForces.svg)
 
-Finally a friction moement has been added which acts inverse to the ball speed.
+Finally a friction moment has been added which acts inverse to the ball speed.
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Friction force](./equ-friction.svg)
 
