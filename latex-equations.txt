@@ -31,12 +31,12 @@ ml^2 \cdot \ddot{\alpha} = -l \cdot sin\theta \cdot cos(\varphi +\alpha ) \cdot 
 -----------------
 
 \begin{align*}
-l \ddot{\alpha} =
-& -sin\theta \cdot cos(\varphi +\alpha ) \cdot g\\
-& + \ddot{x}(sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
-& + \ddot{y}(-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
-& + \ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))\\
-& -l(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\psi} \cdot \dot{\theta} \cdot sin\theta)\\
-& -l(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))\\
-& - fr \cdot l \cdot \dot{\alpha} / m
+\ddot{\alpha} =
+& -sin\theta \cdot cos(\varphi +\alpha ) \cdot \frac{g}{l}\\
+& + \frac{\ddot{x}}{l} (sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
+& + \frac{\ddot{y}}{l} (-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
+& + \frac{\ddot{z}}{l} (-sin\theta \cdot cos(\varphi +\alpha))\\
+& -(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\psi} \cdot \dot{\theta} \cdot sin\theta)\\
+& -(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))\\
+& - \frac{fr}{m} \cdot \dot{\alpha}
 \end{align*}
