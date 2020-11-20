@@ -2,7 +2,7 @@ https://www.codecogs.com/latex/eqneditor.php
 
 -----------------
 
-l \ddot{\alpha} = -cos(\varphi +\alpha )\cdot sin\theta \cdot g
+l \ddot{\alpha} = -cos(\varphi +\alpha ) \cdot sin\theta \cdot g
 
 -----------------
 
@@ -28,7 +28,7 @@ l \ddot{\alpha} = -cos(\varphi +\alpha )\cdot sin\theta \cdot g
 
 \begin{align*}
 \large l \ddot{\alpha} =
-& -cos(\varphi +\alpha )\cdot sin\theta \cdot g\\
+& -cos(\varphi +\alpha ) \cdot sin\theta \cdot g\\
 & + \ddot{x}(sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
 & + \ddot{y}(-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
 & + \ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))\\
