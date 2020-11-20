@@ -18,7 +18,7 @@ Then as the board is actually a non galilean referencial, moment of virtual forc
 
 Each moment is equal to:
 
-![Non Galilean virtual forces](.equ-virtualForces.svg)
+![Non Galilean virtual forces](./equ-virtualForces.svg)
 
 So the final equation is:
 
