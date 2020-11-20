@@ -1,6 +1,6 @@
 # Arduino Virtual Ball in Torus
 
-![My Toy](./sphere_in_torus_toy.png)
+| ![My Toy](./sphere_in_torus_toy.png) |
 
 This small Arduino construction reproduces the machanics of a (single) ball kept inside a torus. By moving the Arduino board itself accross the 6 dimansions, the ball circulates inside.
 
@@ -14,7 +14,7 @@ Assuming a fixed board, where its z axis points verticaly upward, the only momen
 
 ![Moment from gravity force](./equ-gravity.svg)
 
-Then as the board is actually a non galilean referencial, the moment of virtual forces appply too. First as the referential translates along the 3 axis, the monent of the inertia force applies. As the referential rotates, the 3 new virtual forces are the Euler force, the Coriolis force and the centrifugal force. The 3 forces are explained [here](https://en.wikipedia.org/wiki/Coriolis_force).
+Then as the board is actually a non galilean referencial, the moment of virtual forces appply too. First as the referential translates along the 3 axis, the monent of the inertia force applies. As the referential rotates, the 3 new virtual forces are the Euler force, the Coriolis force and the centrifugal force. The 3 forces are explained [here](https://en.wikipedia.org/wiki/Coriolis_force#Formula).
 
 ![Non Galilean virtual forces](./non_galilean_virtual_forces.svg)
 
