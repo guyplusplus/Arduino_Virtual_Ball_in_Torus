@@ -10,6 +10,11 @@ All calculations are based on Euler angles, in the canonical (first) approach ba
 
 ![Euler angles](./euler-angles.png)
 
+Few notations:
+- the torus has a radius of *l*
+- *&#x03b1; (alpha)* is the angle of the ball in the torus referential with x axis
+- *g* is the gravity constant
+
 Assuming a fixed board, where its z axis points verticaly upward, the only moment is from the gravity force:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Moment from gravity force](./equ-gravity.svg)
