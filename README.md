@@ -37,4 +37,4 @@ So the complete equation is:
 
 I have calculated all the equations myself, so if you find any error, please contact me!
 
-Thanks to [STLFinder](https://www.stlfinder.com/model/voronoi-donut-with-holes-inside-saX8Zuwv/659237/) for the picture of the toy.
+Thanks to [Ole Eichhorn at Thingiverse](https://www.thingiverse.com/thing:324904) for the picture of the toy.
