@@ -397,17 +397,17 @@ void loop() {
     float cos_phi_plus_alpha = cos(phi + alpha);
     float sin_phi_plus_alpha = sin(phi + alpha);
 
-    //Monent of gravity, in non galiean strip referential
+    //Moment of gravity, in non galiean strip referential
     float alpha_pp_gravity = (-sin_theta * cos_phi_plus_alpha * g) / l;
 
-    //Monent of inertia strength
+    //Moment of inertia strength
     float alpha_pp_inertia = (
                   (aaWorld.x / accel_scale) * (sin_psi * cos_theta * cos_phi_plus_alpha + cos_psi * sin_phi_plus_alpha) +
                   (aaWorld.y / accel_scale) * (-cos_psi * cos_theta * cos_phi_plus_alpha + sin_psi * sin_phi_plus_alpha) +
                   (aaWorld.z / accel_scale) * (-sin_theta * cos_phi_plus_alpha)
                 ) / l;
 
-    //Monent of centrifuge strength
+    //Moment of centrifuge strength
     float theta_p = 0;
     if (abs(cos_theta) > .5)
       theta_p = (sin_theta - previous_sin_theta) / cos_theta / dt;
@@ -434,7 +434,7 @@ void loop() {
     }
     float alpha_pp_centrifuge = -(theta_p * cos_phi_plus_alpha + psi_p_sin_theta * sin_phi_plus_alpha) * (-theta_p * sin_phi_plus_alpha + psi_p_sin_theta * cos_phi_plus_alpha);
 
-    //Monent of Euler strength
+    //Moment of Euler strength
     float sin_phi = sin(phi);
     float cos_phi = cos(phi);
     float phi_p = 0;
@@ -446,7 +446,7 @@ void loop() {
     float phi_pp = (phi_p - previous_phi_p) / dt;
     float alpha_pp_euler = -(psi_pp * cos_theta + phi_pp - theta_p * psi_p_sin_theta);
 
-    //Monent of Friction
+    //Moment of Friction
     float alpha_pp_friction = -friction_factor * alpha_p / m;
     
     //sum all accelerations

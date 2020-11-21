@@ -7,25 +7,25 @@ ml^2 \cdot \ddot{\alpha} = -l \cdot sin\theta \cdot cos(\varphi +\alpha ) \cdot 
 -----------------
 
 \\
-\boldsymbol{\textrm{Monent of the inertia force:}}\\
+\boldsymbol{\textrm{Moment of the inertia force:}}\\
 \indent + l \cdot m\ddot{x}(sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
 \indent + l \cdot m\ddot{y}(-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
 \indent + l \cdot m\ddot{z}(-sin\theta \cdot cos(\varphi +\alpha))
 \\
 \\
-\boldsymbol{\textrm{Monent of the Euler force:}}\\
+\boldsymbol{\textrm{Moment of the Euler force:}}\\
 \indent -l^2 \cdot m(\ddot{\psi} \cdot cos\theta + \ddot{\varphi} - \dot{\psi} \cdot \dot{\theta} \cdot sin\theta)
 \\
 \\
-\boldsymbol{\textrm{Monent of the Coriolis force:}}\\
+\boldsymbol{\textrm{Moment of the Coriolis force:}}\\
 \indent +0
 \\
 \\
-\boldsymbol{\textrm{Monent of the centrifugal force:}}\\
+\boldsymbol{\textrm{Moment of the centrifugal force:}}\\
 \indent -l^2 \cdot m(\dot{\theta} \cdot cos(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot sin(\varphi +\alpha)) (-\dot{\theta} \cdot sin(\varphi +\alpha) + \dot{\psi} \cdot sin\theta \cdot cos(\varphi +\alpha))
 \\
 \\
-\boldsymbol{\textrm{Monent of the friction force:}}\\
+\boldsymbol{\textrm{Moment of the friction force:}}\\
 \indent - fr \cdot l^2 \cdot \dot{\alpha}
 
 -----------------
