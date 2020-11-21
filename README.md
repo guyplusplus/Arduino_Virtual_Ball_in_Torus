@@ -14,7 +14,7 @@ Few notations:
 - the torus has a radius of *l*
 - *&#x03b1; (alpha)* is the angle of the ball in the torus referential with x axis
 - *g* is the gravity constant
-- *m* the mass of the ball
+- *m* is the mass of the ball
 - *fr* is the friction factor
 
 Assuming a fixed board, where its z axis points verticaly upward, the only moment is from the gravity force:

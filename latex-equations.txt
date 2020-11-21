@@ -2,7 +2,7 @@ https://www.codecogs.com/latex/eqneditor.php
 
 -----------------
 
-ml^2 \cdot \ddot{\alpha} = -l \cdot sin\theta \cdot cos(\varphi +\alpha ) \cdot mg
+ml^2 \cdot \ddot{\alpha} = -l  \cdot mg \cdot sin\theta \cdot cos(\varphi +\alpha )
 
 -----------------
 
@@ -32,7 +32,7 @@ ml^2 \cdot \ddot{\alpha} = -l \cdot sin\theta \cdot cos(\varphi +\alpha ) \cdot 
 
 \begin{align*}
 \ddot{\alpha} =
-& -sin\theta \cdot cos(\varphi +\alpha ) \cdot \frac{g}{l}\\
+& - \frac{g}{l} \cdot sin\theta \cdot cos(\varphi +\alpha )\\
 & + \frac{\ddot{x}}{l} (sin\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + cos\psi \cdot sin(\varphi +\alpha))\\
 & + \frac{\ddot{y}}{l} (-cos\psi \cdot cos\theta \cdot cos(\varphi +\alpha) + sin\psi \cdot sin(\varphi +\alpha))\\
 & + \frac{\ddot{z}}{l} (-sin\theta \cdot cos(\varphi +\alpha))\\
