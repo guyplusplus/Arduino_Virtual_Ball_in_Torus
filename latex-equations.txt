@@ -2,10 +2,13 @@ https://www.codecogs.com/latex/eqneditor.php
 
 -----------------
 
-m\vec{a'} = \vec{F}
-- m \frac{\mathrm{d} \vec{\omega} }{\mathrm{d} t} \wedge \vec{r'}
-- 2 m \vec{\omega} \wedge \vec{v'}
-- m \vec{\omega} \wedge (\vec{\omega} \wedge \vec{r'})
+\begin{align*}
+m\vec{a'} =
+& \vec{F}\\
+& - m \frac{\mathrm{d} \vec{\omega} }{\mathrm{d} t} \wedge \vec{r'} && \textrm{Euler force}\\
+& - 2 m \vec{\omega} \wedge \vec{v'} && \text{Coriolis force}\\
+& - m \vec{\omega} \wedge (\vec{\omega} \wedge \vec{r'}) && \textrm{Centrifugal force}
+\end{align*}
 
 -----------------
 
