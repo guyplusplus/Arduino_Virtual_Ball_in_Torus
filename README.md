@@ -1,4 +1,4 @@
-# Arduino Virtual Ball in Torus
+# Arduino Virtual Ball inside a Torus
 
 ![My Toy](./sphere_in_torus_toy.png)
 
@@ -11,25 +11,25 @@ All calculations are based on Euler angles, in the canonical (first) approach ba
 ![Euler angles](./euler-angles.png)
 
 Few notations:
-- the torus has a radius of *l*
-- *&#x03b1; (alpha)* is the angle of the ball in the torus referential with x axis
-- *g* is the gravity constant
-- *m* is the mass of the ball
-- *fr* is the friction factor
+- *l* : the torus radius
+- *&#x03b1; (alpha)* : the angle of the ball in the torus referential with the x axis
+- *g* : the gravity constant
+- *m* : the mass of the ball
+- *fr* : the friction factor
 
-Assuming a fixed board, where its z axis points verticaly upward, the only moment is from the gravity force:
+When the board is fixed, where its z axis points verticaly upward, the only moment is from the gravity force:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Moment from gravity force](./equ-gravity.svg)
 
-Then as the board is actually a non galilean referencial, the moment of virtual forces appply too. First as the referential translates along the 3 axis, the moment of the inertia force applies. As the referential rotates, the 3 new virtual forces are the Euler force, the Coriolis force and the centrifugal force. The 3 forces are explained [here](https://en.wikipedia.org/wiki/Coriolis_force#Formula).
+When the board starts to move by a human hand, the board referencial can not be considered galilean anymore. The moment of fictitious forces apply too. First as the referential translates along the 3 axis, the moment of the inertia force applies. As the referential rotates, the 3 new fictitious forces are the Euler force, the Coriolis force and the centrifugal force. The 3 forces are explained [here](https://en.wikipedia.org/wiki/Coriolis_force#Formula).
 
-&nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean virtual forces](./non_galilean_virtual_forces.svg)
+&nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean fictitious forces](./non_galilean_virtual_forces.svg)
 
-A friction moment has also been added which acts inverse to the ball speed.
+A friction force has also been added, it acts inverse to the ball speed.
 
-The moment of the 4 virtual forces and the friction are equal to:
+The moment of the 4 fictitious forces and the friction are equal to:
 
-&nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean virtual forces](./equ-virtualForces.svg)
+&nbsp;&nbsp;&nbsp;&nbsp;![Non Galilean fictitious forces](./equ-virtualForces.svg)
 
 So the complete equation is:
 
