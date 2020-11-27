@@ -10,14 +10,14 @@ All calculations are based on Euler angles, in the canonical (first) approach ba
 
 ![Euler angles](./euler-angles.png)
 
-Few notations:
+Few additional notations:
 - *l* : the torus radius
 - *&#x03b1; (alpha)* : the angle of the ball in the torus referential with the x axis
 - *g* : the gravity constant
 - *m* : the mass of the ball
 - *fr* : the friction factor
 
-When the board is fixed, where its z axis points verticaly upward, the only moment is from the gravity force:
+When the board is fixed, where xy is the horizantal plane and its z axis points verticaly upward, the only moment is from the gravity force:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Moment from gravity force](./equ-gravity.svg)
 
