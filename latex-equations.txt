@@ -2,6 +2,14 @@ https://www.codecogs.com/latex/eqneditor.php
 
 -----------------
 
+ml^2 \cdot \ddot{\alpha} = -l  \cdot mg \cdot sin\theta \cdot cos(\varphi +\alpha )
+
+-----------------
+
+T = 2 \pi \sqrt{\frac{l}{g \cdot sin \theta}}
+
+-----------------
+
 \begin{align*}
 m\vec{a'} =
 & \vec{F}\\
@@ -9,10 +17,6 @@ m\vec{a'} =
 & - 2 m \vec{\omega} \wedge \vec{v'} && \text{Coriolis force}\\
 & - m \vec{\omega} \wedge (\vec{\omega} \wedge \vec{r'}) && \textrm{Centrifugal force}
 \end{align*}
-
------------------
-
-ml^2 \cdot \ddot{\alpha} = -l  \cdot mg \cdot sin\theta \cdot cos(\varphi +\alpha )
 
 -----------------
 
