@@ -21,7 +21,7 @@ When the board is fixed, where xy is the horizantal plane and its z axis points 
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Moment from gravity force](./equ-gravity.svg)
 
-The period of the oscillation of the ball is as bellow. For a 4cm radius torus, it is about 0.4 seconds.
+The period of the oscillation of the ball is as bellow. For a 4cm radius verticaly oriented torus, the period is about 0.4 seconds.
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Pendulum period](./equ-period.svg)
 
