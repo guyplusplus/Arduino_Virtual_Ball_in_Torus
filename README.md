@@ -23,7 +23,7 @@ When the board is fixed, where xy is the horizantal plane and its z axis points 
 
 The period of the oscillation of the ball is as bellow. For a 4cm radius torus, it is about 0.4 seconds.
 
-![Pendulum period](./equ-period.png)
+&nbsp;&nbsp;&nbsp;&nbsp;![Pendulum period](./equ-period.svg)
 
 When the board starts to move by a human hand, the board referencial can not be considered galilean anymore. The moment of fictitious forces apply too. First as the referential translates along the 3 axis, the moment of the inertia force applies. As the referential rotates, the 3 new fictitious forces are the Euler force, the Coriolis force and the centrifugal force. The 3 forces are explained [here](https://en.wikipedia.org/wiki/Coriolis_force#Formula).
 
