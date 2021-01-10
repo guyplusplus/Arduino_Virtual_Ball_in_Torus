@@ -17,7 +17,7 @@ Few additional notations:
 - *m* : the mass of the ball
 - *fr* : the friction factor
 
-When the board is fixed, where xy is the horizontal plane and its z axis points vertically upward, the only moment is from the gravity force:
+The Arduino board (the torus) is by convention located in the plane XY (p1p2 in the diagram above), where Z (p3) axis points vertically upward. When the board is steady in the earth referential, the only moment is from the gravity force:
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Moment from gravity force](./equ-gravity.svg)
 
