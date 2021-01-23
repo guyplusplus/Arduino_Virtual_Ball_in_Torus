@@ -6,6 +6,8 @@ This small Arduino construction reproduces the mechanics of a (single) ball kept
 
 The behaviour is calculated realtime by the processor, based on standard mechanics equations, using moment of inertia.
 
+## The Math
+
 All calculations are based on Euler angles, in the canonical (first) approach based on the ZXZ axis rotation order: &#x03c8; (psi), &#x03b8; (theta) then &#x03c6; (phi, &#x03d5; in the picture bellow). This picture from [Berkeley University](https://rotations.berkeley.edu/the-euler-angle-parameterization/) explains the used notation.
 
 ![Euler angles](./euler-angles.png)
@@ -40,5 +42,13 @@ So the complete equation is:
 &nbsp;&nbsp;&nbsp;&nbsp;![Complete equation](./equ-complete.svg)
 
 I have calculated all the equations myself, so if you find any error, please contact me!
+
+## Arduino schematic
+
+I used [Fritzing](https://fritzing.org/) for the design for the board.
+
+![schematic](./BallInTorus_FritzingSchematics_bb.png)
+
+## Thanks
 
 Thanks to [Ole Eichhorn at Thingiverse](https://www.thingiverse.com/thing:324904) for the picture of the toy.
