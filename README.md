@@ -45,7 +45,7 @@ I have calculated all the equations myself, so if you find any error, please con
 
 ## Arduino schematic
 
-I used [Fritzing](https://fritzing.org/) for the design for the board.
+I used [Fritzing](https://fritzing.org/) for the design for the board. The raw file is [here](./BallInTorus_FritzingSchematics.fzz).
 
 ![schematic](./BallInTorus_FritzingSchematics_bb.png)
 
