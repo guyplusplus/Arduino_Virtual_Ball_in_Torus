@@ -1,6 +1,6 @@
 # Arduino Virtual Ball inside a Torus
 
-![My Toy](./sphere_in_torus_toy.png)
+![My Toy](./sphere_in_torus_toy.png) ![Board at rest](./BoardAtRest.png)
 
 This small Arduino construction reproduces the mechanics of a (single) ball kept inside a torus. By moving the Arduino board itself across the 6 dimensions, the ball virtually circulates inside the torus.
 
