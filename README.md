@@ -55,6 +55,10 @@ The MPU6050 library is from Jeff Rowberg on Git [here](https://github.com/jrowbe
 
 Callibration is done with a home grown technique as the provided library did not work well for me. The board shall be placed in an horizontal position first, it can then be switched on (or reset). The first 3 seconds are in wait time to wait for the MPU to stabilize (it takes actually more time than this), the last second is used to average the current position and orientation to define the reference quarternion sensorQ0 and its conjugate. The callibration time can be changed via the variable CALLIBRATION_STEPS.
 
+## Sample Movements
+
+![Video](./https://youtu.be/k5dkkXRLZqw)
+
 ## Thanks
 
 Thanks to [Ole Eichhorn at Thingiverse](https://www.thingiverse.com/thing:324904) for the picture of the toy.
