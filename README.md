@@ -4,7 +4,7 @@
 
 This small Arduino construction reproduces the mechanics of a (single) ball kept inside a torus. By moving the Arduino board itself across the 6 dimensions, the ball virtually circulates inside the torus.
 
-The behaviour is calculated realtime by the processor, based on standard mechanics equations, using moment of inertia.
+The behaviour is calculated realtime by the processor, based on classic mechanic equations, using moment of inertia.
 
 ## The Math
 
@@ -43,11 +43,17 @@ So the complete equation is:
 
 I have calculated all the equations myself, so if you find any error, please contact me!
 
-## Arduino schematic
+## Arduino Schematic
 
 I used [Fritzing](https://fritzing.org/) for the design for the board. The raw file is [here](./BallInTorus_FritzingSchematics.fzz).
 
 ![schematic](./BallInTorus_FritzingSchematics_bb.png)
+
+## The Code
+
+The MPU6050 library is from Jeff Rowberg on Git [here](https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050), using the interruption model (frequency at 100Hz) to receive measurements.
+
+Callibration is done with a home grown technique as the provided library did not work well for me. The board shall be placed in an horizontal position first, it can then be switched on (or reset). The first 3 seconds are in wait time to wait for the MPU to stabilize (it takes actually more time than this), the last second is used to average the current position and orientation to define the reference quarternion sensorQ0 and its conjugate. The callibration time can be changed via the variable CALLIBRATION_STEPS.
 
 ## Thanks
 
