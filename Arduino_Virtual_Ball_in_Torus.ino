@@ -6,6 +6,7 @@
 // for both classes must be in the include path of your project
 #include "I2Cdev.h"
 
+// From https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
 #include "MPU6050_6Axis_MotionApps20.h"
 //#include "MPU6050.h" // not necessary if using MotionApps include file
 
@@ -195,7 +196,7 @@ void setup() {
   if (devStatus == 0) {
     mpu.setFullScaleGyroRange(MPU6050_GYRO_FS_2000); //low precision, high rotation capability
     mpu.setFullScaleAccelRange(MPU6050_ACCEL_FS_2); //high precision
-     mpu.PrintActiveOffsets();
+    mpu.PrintActiveOffsets();
     if (DEBUG) {
       Serial.print(F("getFullScaleGyroRange (3=MPU6050_GYRO_FS_2000, 0=MPU6050_GYRO_FS_250): "));
       Serial.println(mpu.getFullScaleGyroRange());
@@ -296,9 +297,9 @@ void callibrateOrientation(Quaternion *q) {
   }
 
   //accumulate
-  sensorQ0.w += q->w;      
-  sensorQ0.x += q->x;      
-  sensorQ0.y += q->y;      
+  sensorQ0.w += q->w;
+  sensorQ0.x += q->x;
+  sensorQ0.y += q->y;
   sensorQ0.z += q->z;
 }
 
