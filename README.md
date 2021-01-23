@@ -57,9 +57,7 @@ Callibration is done with a home grown technique as the provided library did not
 
 ## Sample Movements
 
-![Video](https://youtu.be/k5dkkXRLZqw)
-
-[![Video](https://youtu.be/vi/k5dkkXRLZqw/0.jpg)](https://youtu.be/k5dkkXRLZqw "Animation")
+[![](http://img.youtube.com/vi/k5dkkXRLZqw/0.jpg)](http://www.youtube.com/watch?v=k5dkkXRLZqw "Animation")
 
 ## Thanks
 
