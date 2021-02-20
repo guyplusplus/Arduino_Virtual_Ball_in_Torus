@@ -6,6 +6,8 @@ This small Arduino construction reproduces the mechanics of a (single) ball kept
 
 The behaviour is calculated realtime by the processor, based on classic mechanic equations, using moment of inertia.
 
+This project is also registered on [Arduino Project Hub](https://create.arduino.cc/projecthub/guiliguili/virtual-ball-in-a-torus-6ee38f).
+
 ## The Math
 
 All calculations are based on Euler angles, in the canonical (first) approach based on the ZXZ axis rotation order: &#x03c8; (psi), &#x03b8; (theta) then &#x03c6; (phi, &#x03d5; in the picture bellow). This picture from [Berkeley University](https://rotations.berkeley.edu/the-euler-angle-parameterization/) explains the used notation.
